@@ -5,32 +5,31 @@
  */
 package streaming.servlet;
 
-import streaming.service.FilmService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import streaming.entity.Film;
+import streaming.entity.Serie;
+import streaming.service.SerieService;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name = "ListeFilmServlet", urlPatterns = {"/liste_films"})
-public class ListeFilmServlet extends HttpServlet {
+@WebServlet(name = "ListeSerieServlet", urlPatterns = {"/liste_series"})
+public class ListeSerieServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Film> films = new FilmService().lister();
-        
-        req.setAttribute("mesfilms", films);
-        
-        req.getRequestDispatcher("lister_films.jsp").forward(req, resp);
-        
+        List<Serie> series = new SerieService().lister();
+        req.setAttribute("messeries", series);
+        req.getRequestDispatcher("lister_series.jsp").forward(req, resp);
     }
-    
+
    
+
 }

@@ -17,4 +17,20 @@ public class FilmService {
     public List<Film> lister(){
         return new FilmDAO().listerFilms();
     }
+    
+    public void ajouter(Film films){
+        new FilmDAO().ajouterFilm(films);
+    }
+    
+    public void supprimer(long id){
+        new FilmDAO().supprimerFilm(id);
+    }
+    
+    public Film rechercher(long id){
+        return new FilmDAO().rechercherFilm(id);
+    }
+    
+    public void modifier(Film films){
+        new FilmDAO().modifierFilm(films);
+    }
 }
