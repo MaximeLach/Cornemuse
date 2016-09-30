@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import streaming.entity.Serie;
+import streaming.service.SerieService;
 
 /**
  *
@@ -23,6 +25,15 @@ public class AjouterSerieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("ajouter_serie.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Serie s = new Serie();
+        s.setTitre(req.getParameter("titre"));
+        s.setSynopsis(req.getParameter("synopsis"));
+        new SerieService().ajouter(s);
+        resp.sendRedirect("liste_series");
     }
 
     

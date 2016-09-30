@@ -30,14 +30,6 @@
                 <br>
                 <textarea name="synopsis"></textarea>
                 <br>
-                <label>Année de production</label>
-                <br>
-                <input name="annee" type="text"/>
-                <br>
-                <label>Durée en minutes</label>
-                <br>
-                <input name="duree" type="text"/>
-                <br>
                 <input type="submit" value="Ajouter"/>
             </form>
         </div>

@@ -21,4 +21,30 @@ public class SerieDAO {
         List<Serie> series = em.createQuery("SELECT s FROM Serie s ORDER BY s.id DESC").getResultList();
         return series;
     }
+    
+    public void ajouterSerie(Serie series){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.persist(series);
+        em.getTransaction().commit();
+    }
+    
+    public void supprimerSerie(long id){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Serie s WHERE s.id=" + id).executeUpdate();
+        em.getTransaction().commit();
+    }
+    
+    public Serie rechercherSerie(long id){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.find(Serie.class, id);
+    }
+    
+    public void modifierSerie(Serie series){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.merge(series);
+        em.getTransaction().commit();
+    }
 }

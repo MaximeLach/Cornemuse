@@ -17,4 +17,19 @@ public class SerieService {
     public List<Serie> lister(){
         return new SerieDAO().listerSeries();
     }
+    public void ajouter(Serie series){
+        new SerieDAO().ajouterSerie(series);
+    }
+    
+    public void supprimer(long id){
+        new SerieDAO().supprimerSerie(id);
+    }
+    
+    public Serie rechercher(long id){
+        return new SerieDAO().rechercherSerie(id);
+    }
+    
+    public void modifier(Serie series){
+        new SerieDAO().modifierSerie(series);
+    }
 }

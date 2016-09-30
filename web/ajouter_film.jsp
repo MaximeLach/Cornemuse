@@ -21,7 +21,7 @@
             Nouveau film
         </div>
         <div class="contenu">
-            <form method="POST">
+            <form method="POST" >
                 <label>Titre</label>
                 <br>
                 <input name="titre" type="text"/>
