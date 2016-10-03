@@ -22,6 +22,7 @@
         <div class="contenu">
             <c:forEach items="${messeries}" var ="maserie">
                 ${maserie.titre} <a href="supprimer_serie?monid=${maserie.id}">Supprimer</a>
+                <a href="modifier_serie?monid=${maserie.id}">Modifier</a>
                 <br>
             </c:forEach>
         </div>

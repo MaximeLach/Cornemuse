@@ -18,14 +18,21 @@
             <c:import url="_MENU.jsp"/>
         </div>
         <div class="titre">
-            Liste des films
+            Modification série
         </div>
         <div class="contenu">
-            <c:forEach items="${mesfilms}" var ="monfilm">
-                ${monfilm.titre} <a href="supprimer_film?monid=${monfilm.id}">Supprimer</a>
-                                <a href="modifier_film?monid=${monfilm.id}">Modifier</a>
+            <form method="POST" >
+                <input type="hidden" value="${maSerie.id}" name="id"/>
+                <label>Titre</label>
                 <br>
-            </c:forEach>
+                <input name="titre" type="text" value="${maSerie.titre}"/>
+                <br>
+                <label>Synopsis</label>
+                <br>
+                <textarea name="synopsis">${maSerie.synopsis}</textarea>
+                <br>
+                <input type="submit" value="Modifier"/>
+            </form>
         </div>
         <div class="pied">
              <c:import url="_PIED.jsp"/>

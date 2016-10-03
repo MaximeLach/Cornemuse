@@ -34,6 +34,7 @@ public class Genre implements Serializable {
     
     private String nom;
 
+    
     public List<Film> getFilms() {
         return films;
     }

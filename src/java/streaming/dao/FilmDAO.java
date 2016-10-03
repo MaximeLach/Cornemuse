@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import streaming.entity.Film;
+import streaming.entity.Genre;
 
 /**
  *
@@ -20,6 +21,7 @@ public class FilmDAO {
         List<Film> films = em.createQuery("SELECT f FROM Film f ORDER BY f.id DESC").getResultList();
         return films;
     }  
+ 
     public void ajouterFilm(Film films){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();

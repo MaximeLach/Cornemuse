@@ -62,6 +62,14 @@ public class Film implements Serializable {
         return titre;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
     public void setTitre(String titre) {
         this.titre = titre;
     }

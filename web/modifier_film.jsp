@@ -18,34 +18,42 @@
             <c:import url="_MENU.jsp"/>
         </div>
         <div class="titre">
-            Nouveau film
+            Modification film
         </div>
         <div class="contenu">
             <form method="POST" >
+                <input type="hidden" value="${monFilm.id}" name="id"/>
                 <label>Titre</label>
                 <br>
-                <input name="titre" type="text"/>
+                <input name="titre" type="text" value="${monFilm.titre}"/>
                 <br>
                 <label>Genre</label>
-                <select name="genreId">
+                <select name="genreId" value = 3>
                     <c:forEach items="${listeGenres}" var="genreAct">
-                        <option value="${genreAct.id}">${genreAct.nom}</option>
-                    </c:forEach>                    
+                        <option value="${genreAct.id}">${genreAct.nom}</option>  
+                        <c:if test="${genreAct.nom}==$(monFilm.genre.nom}">
+                            <option selected="selected"> 
+                                ${genreAct.nom}
+                            </option>
+                        </c:if>
+                    </c:forEach> 
+                             
                 </select>
+                
                 <br>
                 <label>Synopsis</label>
                 <br>
-                <textarea name="synopsis"></textarea>
+                <textarea name="synopsis">${monFilm.synopsis}</textarea>
                 <br>
                 <label>Année de production</label>
                 <br>
-                <input name="annee" type="text"/>
+                <input name="annee" type="text" value="${monFilm.annee}"/>
                 <br>
                 <label>Durée en minutes</label>
                 <br>
-                <input name="duree" type="text"/>
+                <input name="duree" type="text" value="${monFilm.duree}"/>
                 <br>
-                <input type="submit" value="Ajouter"/>
+                <input type="submit" value="Modifier"/>
             </form>
         </div>
         <div class="pied">
