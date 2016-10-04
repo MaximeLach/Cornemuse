@@ -23,6 +23,8 @@ public class FilmDAO {
         return films;
     }
 
+    
+    
     public void ajouterFilm(Film film) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();

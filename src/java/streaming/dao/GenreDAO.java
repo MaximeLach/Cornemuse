@@ -16,7 +16,7 @@ import streaming.entity.Genre;
 public class GenreDAO {
     public List<Genre> listerGenres(){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-        List<Genre> listegenres = em.createQuery("SELECT g FROM Genre g").getResultList();
+        List<Genre> listegenres = em.createQuery("SELECT g FROM Genre g ORDER BY g.id DESC").getResultList();
         return listegenres;
     }
     public Genre rechercherGenre(long id){

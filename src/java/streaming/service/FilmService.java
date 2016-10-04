@@ -18,6 +18,12 @@ public class FilmService {
         return new FilmDAO().listerFilms();
     }
     
+    public void ajouterFilms(List<Film> films){
+        FilmDAO dao = new FilmDAO();
+        for(Film f : films){
+            dao.ajouterFilm(f);
+        }
+    }
     
     public void ajouter(Film films){
         new FilmDAO().ajouterFilm(films);

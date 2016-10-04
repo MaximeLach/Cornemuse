@@ -36,7 +36,7 @@ public class PaysDAO {
     }
     public List<Pays> listerPays(){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-        List<Pays> pays = em.createQuery("Select p FROM Pays p").getResultList();
+        List<Pays> pays = em.createQuery("Select p FROM Pays p ORDER BY p.id DESC").getResultList();
         return pays;
     }
     public Pays FindById(Long id){
