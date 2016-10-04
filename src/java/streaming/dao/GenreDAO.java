@@ -23,4 +23,23 @@ public class GenreDAO {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         return em.find(Genre.class, id);
     }
+    public void ajouterGenre(Genre genre){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.persist(genre);
+        em.getTransaction().commit();
+    }
+    public void modifierGenre(Genre genre){
+        EntityManager em= Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.merge(genre);
+        em.getTransaction().commit();
+    }
+    public void supprimerGenre(long id){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Genre g WHERE g.id =" + id).executeUpdate();
+        em.getTransaction().commit();
+    }
+    
 }

@@ -28,18 +28,18 @@
                 <input name="titre" type="text" value="${monFilm.titre}"/>
                 <br>
                 <label>Genre</label>
-                <select name="genreId" value = 3>
+                <select name="genreId">
                     <c:forEach items="${listeGenres}" var="genreAct">
-                        <option value="${genreAct.id}">${genreAct.nom}</option>  
-                        <c:if test="${genreAct.nom}==$(monFilm.genre.nom}">
-                            <option selected="selected"> 
-                                ${genreAct.nom}
-                            </option>
+                        <c:if test="${genreAct.id!=monFilm.genre.id}">
+                            <option value="${genreAct.id}">${genreAct.nom}</option>  
                         </c:if>
-                    </c:forEach> 
-                             
+                        <c:if test="${genreAct.id==monFilm.genre.id}">
+                            <option selected= "Selected" value="${genreAct.id}">${genreAct.nom}</option>
+                            
+                        </c:if>
+                        
+                    </c:forEach>             
                 </select>
-                
                 <br>
                 <label>Synopsis</label>
                 <br>

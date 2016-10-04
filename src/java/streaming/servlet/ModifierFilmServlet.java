@@ -38,6 +38,7 @@ public class ModifierFilmServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Film f = new Film();
         f.setId(Long.valueOf(req.getParameter("id")));
+        f.setGenre(new GenreService().rechercheGenre(Long.valueOf(req.getParameter("genreId"))));
         f.setTitre(req.getParameter("titre"));
         f.setSynopsis(req.getParameter("synopsis"));
         f.setAnnee(Integer.valueOf(req.getParameter("annee")));
